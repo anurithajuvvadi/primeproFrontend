@@ -1,0 +1,24 @@
+
+<h2>Trainer list</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Id</th>
+            <th>Update/Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trainer of trainers">
+            <td>{{trainer.firstname}}</td>
+            <td>{{trainer.lastname}}</td>
+            <td>{{trainer.emailid}}</td>
+            <td>
+                <button (click) = "updateTrainer(trainer.id)" class="btn btn-info">Update Trainer</button>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>

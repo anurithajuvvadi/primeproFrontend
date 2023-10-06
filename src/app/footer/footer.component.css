@@ -1,0 +1,14 @@
+footer{
+    position: fixed;
+    bottom:0px;
+    width: 100%;
+    padding:10px;
+    font-size:17px;
+    font-weight:bold;
+    text-align:center;
+    background:#594848;
+    color:white;
+    font-family:Arial;
+    letter-spacing:1px;
+
+}

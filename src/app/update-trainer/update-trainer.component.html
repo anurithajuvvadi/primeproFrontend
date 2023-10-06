@@ -1,0 +1,30 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Update Trainer</h3>
+    <form (ngSubmit) = "onSubmit()" >
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstname"
+              [(ngModel)] = "trainer.firstname" name="firstname">
+    
+        </div >
+    
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastname"
+              [(ngModel)] = "trainer.lastname" name="lastname">
+    
+        </div >
+    
+        <div class="form-group">
+            <label>Email Id</label>
+            <input type="text" class="form-control" id="emailid"
+              [(ngModel)] = "trainer.emailid" name="emailid">
+    
+        </div >
+    
+        <button class="btn btn-success" type="submit">Submit</button>
+    
+    
+    
+    </form>
+    </div>
