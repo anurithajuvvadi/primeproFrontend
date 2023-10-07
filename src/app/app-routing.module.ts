@@ -11,6 +11,10 @@ import { UpdateTrainerComponent } from './update-trainer/update-trainer.componen
 
 const routes: Routes = [
   {
+    path:'',
+    component:HomeComponent
+  },
+  {
     path:'aboutus',
     component:AboutusComponent
   },

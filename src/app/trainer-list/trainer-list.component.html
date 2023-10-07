@@ -1,24 +1,54 @@
-
-<h2>Trainer list</h2>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Id</th>
-            <th>Update/Delete</th>
-        </tr>
+<div class="p-1">
+  <div class="heading">
+    Trainer list
+  </div>
+  <div class="row search">
+    <div class="col-md-4">
+      <input
+        type="text"
+        name="text"
+        (keyup)="findByKey($event)"
+        placeholder="Search Trainer"
+      />
+    </div>
+  </div>
+</div>
+<div *ngIf="isTrainers; else message" class="data text-center">
+  <table class="table text-center">
+    <thead class="table">
+      <tr>
+        <th>Sr.No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Id</th>
+        <th>Update/Delete</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let trainer of trainers">
-            <td>{{trainer.firstname}}</td>
-            <td>{{trainer.lastname}}</td>
-            <td>{{trainer.emailid}}</td>
-            <td>
-                <button (click) = "updateTrainer(trainer.id)" class="btn btn-info">Update Trainer</button>
-            </td>
+      <tr *ngFor="let trainer of trainers; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ trainer.firstname }}</td>
+        <td>{{ trainer.lastname }}</td>
+        <td>{{ trainer.emailid }}</td>
+        <td>
+          <!-- <button (click)="updateTrainer(trainer.id)" class="btn btn-info">
+            Update
+          </button> -->
+          <!-- <button (click)="delete(trainer.id)" class="btn btn-danger">
+            Delete
+          </button> -->
 
-        </tr>
+          <button routerLink="/trainers/create-trainer" [queryParams]="{id:trainer.id}" class="btn btn-info" >Update</button>
+          <button (click)="delete(trainer.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
     </tbody>
+  </table>
+</div>
 
-</table>
+<ng-template #message>
+  <div class="template mx-auto">
+    <!-- <h1>{{msg}}</h1> -->
+    <img src="../../assets/empty-cart.jpg" alt="empty-cart" />
+  </div>
+</ng-template>

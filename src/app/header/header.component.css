@@ -1,12 +1,69 @@
-navbar{
-    position: sticky;
+/* .navbar{
+    position: fixed;
     top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1111;
+    padding: 4vh;
+
 }
 .container-fluid{
     display: flex;
     justify-content: space-between;
     align-items: center;
+} */
+
+header{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #004246;
+    color: whitesmoke;
+    position: relative;
+    width: 100%;
+    
+}
+.logo{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo .icon{
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+.links{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+.links a{
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.links a:hover{
+    background-color: whitesmoke;
+    color: #004246;
+}
+.links a.active{
+    background-color: #deff58;
+    color: #004246;
+    /* color: #004246; */
+}
+
+.bgcolor{
+    background-color: #004246;
+}
+
+.container{
+    flex: 1;
 }

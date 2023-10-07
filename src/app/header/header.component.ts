@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+
+  setActiveLink(event){
+    const  link = document.querySelectorAll(".nav-link");
+    link.forEach(link=>link.classList.remove('active'));
+
+    event.target.classList.add('active');
+  }
+
+
+  isExpanded: boolean = false;
+
+
+  toggleNavbar() {
+    this.isExpanded = !this.isExpanded;
+  }
+  
 }

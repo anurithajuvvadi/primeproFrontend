@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0px;
     padding:0px;
     box-sizing: border-box;
@@ -73,4 +73,33 @@ footer{
     font-family:Arial;
     letter-spacing:1px;
 
+} */
+
+.card{
+    box-shadow: 1px 12px 13px 1px gray;
+    margin: 0 20px;
+    transition: all 0.5s ;
+    border-radius: 15px;
+}
+
+.card:hover{
+    transform: translateY(-20px);
+}
+
+ .courses img{
+    width:fit-content;
+    height:fit-content;
+    scale: 1.1;
+}
+.courses{
+    overflow: hidden;
+    width:max-content;
+    height:max-content;
+}
+
+.courses .description{
+    padding: 20px;
+    color:#004246 ;
+    /* color: #fff; */
+    width: 100%;
 }

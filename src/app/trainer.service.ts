@@ -7,7 +7,7 @@ import { Trainer } from './trainer';
   providedIn: 'root',
 })
 export class TrainerService {
-  private baseURL = 'http://localhost:8080/trainers';
+  private baseURL = 'http://localhost:8088/trainers';
 
   constructor(private httpClient: HttpClient) {}
   getTrainersList(): Observable<Trainer[]> {
@@ -22,5 +22,13 @@ export class TrainerService {
 
   getTrainerById(id: number): Observable<Trainer> {
     return this.httpClient.get<Trainer>(`${this.baseURL}/${id}`);
+  }
+
+  getTrainerByKey(key:string): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/findbykey/${key}`)
+  }
+
+  deleteTrainer(id:number):Observable<any>{
+    return this.httpClient.delete(`${this.baseURL}/delete/${id}`,{responseType:"text"});
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Trainer } from '../trainer';
 import { TrainerService } from '../trainer.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-trainer-list',
@@ -11,24 +13,66 @@ import { Router } from '@angular/router';
 export class TrainerListComponent implements OnInit {
 
   trainers: Trainer[];
+  msg:string;
+  isTrainers:boolean;
   constructor(private trainerService: TrainerService,
-    private router:Router){}
+    private router:Router, private toastr : ToastrService){}
 
   ngOnInit(): void {
     this.getTrainers();
   }
-  private getTrainers(){
+  getTrainers(){
   this.trainerService.getTrainersList().subscribe(data => {
     this.trainers = data;
-    console.log(data); 
+    if(this.trainers.length>0)
+      this.isTrainers=true;
+    if(this.trainers.length<=0)
+      this.isTrainers=false;
   });
  
    
 }
 
-updateTrainer(id: number){
-  console.log(`Navigating to 'update-trainer' with id: ${id}`);
-  this.router.navigate(['trainers/update-trainer']);
+// updateTrainer(id: number){
+//   console.log(`Navigating to 'update-trainer' with id: ${id}`);
+//   this.router.navigate([`trainers/create-trainer/${id}`],);
+// }
+
+delete(id:number){
+  console.log("trainer delete")
+  this.trainerService.deleteTrainer(id).subscribe({
+    next:(data)=>{
+      console.log(data);
+      this.getTrainers();
+      this.toastr.success("deleted")
+    },error:(error)=>{
+      console.log(error);
+      // this.toastr.warning(error.error);
+    }
+  })
+}
+
+findByKey(event:Event){
+  const value = (event.target as HTMLInputElement).value;
+  if(value.length>0){
+    this.trainerService.getTrainerByKey(value).subscribe({
+      next:(data)=>{
+        if(data.length<1){
+          this.msg = "No Data Found"
+          this.isTrainers=false;
+        }
+        if(data.length>0){
+          this.trainers = data;
+          this.isTrainers=true;
+        }
+      },
+      error:(error:HttpErrorResponse)=>{
+          this.msg = "No Data Found"
+      }
+    })
+  }else{
+    this.getTrainers();
+  }
 }
 }
 

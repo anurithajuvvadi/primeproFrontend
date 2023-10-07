@@ -1,14 +1,15 @@
 footer{
-    position: fixed;
-    bottom:0px;
+    /* position: fixed; */
+    /* bottom:0px; */
     width: 100%;
-    padding:10px;
-    font-size:17px;
+    padding:80px 0;
+    font-size:27px;
     font-weight:bold;
     text-align:center;
-    background:#594848;
+    background:#004246;
     color:white;
     font-family:Arial;
     letter-spacing:1px;
+
 
 }

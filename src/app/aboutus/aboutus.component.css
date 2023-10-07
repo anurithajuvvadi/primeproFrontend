@@ -19,14 +19,14 @@ body{
     background-size: 55%;
     background-color: #fdfdfd;
     overflow:hidden;
-    padding:100px;
+    padding:50px 0px;
 
 }
 .inner-container{
     width:55%;
     float:right;
     background-color: #fdfdfd;
-    padding:150px;
+    padding:0 150px;
 }
 .inner-container h1{
     margin-bottom: 30px;
@@ -34,11 +34,11 @@ body{
     font-weight: 900;
 }
 .text{
-    font-size:13px;
+    font-size:18px;
     color:#545454;
     line-height: 25px;
     text-align: justify;
-    margin-bottom: 40px;
+    padding:  20px;
 
 }
 .skills{

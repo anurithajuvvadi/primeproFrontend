@@ -14,6 +14,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CreateTrainerComponent } from './create-trainer/create-trainer.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateTrainerComponent } from './update-trainer/update-trainer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { UpdateTrainerComponent } from './update-trainer/update-trainer.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

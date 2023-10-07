@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from '../trainer';
 import { TrainerService } from '../trainer.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-trainer',
@@ -10,8 +11,31 @@ import { Router } from '@angular/router';
 })
 export class CreateTrainerComponent implements OnInit {
   trainer: Trainer = new Trainer();
-  constructor(private trainerService: TrainerService, private router: Router) {}
-  ngOnInit(): void {}
+  isEditMode:boolean;
+  constructor(
+    private trainerService: TrainerService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((param) => {
+      if(param['id']){
+        this.trainerService.getTrainerById(param['id']).subscribe({
+          next:(data)=>{
+            this.isEditMode=true;
+            this.trainer = data;
+          },
+          error:(error:HttpErrorResponse)=>{
+            console.log(error);
+          }
+        })
+      }
+      if(!param['id']){
+        this.isEditMode=false
+        this.trainer=new Trainer();
+      }
+    });
+  }
 
   saveTrainer() {
     this.trainerService.addTrainer(this.trainer).subscribe({
@@ -25,9 +49,8 @@ export class CreateTrainerComponent implements OnInit {
     });
   }
 
-
   goToTrainerList() {
-    this.router.navigate(['/trainers']);
+    this.router.navigate(['/trainers/trainerlist']);
   }
   onSubmit() {
     console.log(this.trainer);
