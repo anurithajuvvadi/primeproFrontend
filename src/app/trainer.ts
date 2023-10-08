@@ -5,5 +5,5 @@ export class Trainer {
     emailid: string;
     designation:string;
     qualification:string;
-
+    img:Blob;
 }
