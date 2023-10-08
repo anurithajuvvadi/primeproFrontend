@@ -61,3 +61,16 @@ img{
 ::placeholder{
     color: whitesmoke;
 }
+td img{
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    object-fit: cover;
+    text-align: center;
+    /* padding: -50px; */
+}
+td{
+    text-align: center;
+    padding-top: 15px;
+    /* text-anchor: middle; */
+}

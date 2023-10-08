@@ -1,40 +1,183 @@
-<div class="container">
-
+<!-- <div class="container">
   <div class="create">
-    <div class="col-md-6 offset-md-3">
-      <h2 class="mb-5">{{!isEditMode?"Create new":"Edit"}} Trainer</h2>
-      <form (ngSubmit) = "onSubmit()" >
-        <div class="form-group mb-2">
-          <label  class="form-label">First Name</label>
-          <input type="text" class="form-control" id="firstname"
-          [(ngModel)] = "trainer.firstname" name="firstname">
-          
-        </div >
-        
-        <div class="form-group mb-2">
-          <label  class="form-label">Last Name</label>
-          <input type="text" class="form-control" id="lastname"
-          [(ngModel)] = "trainer.lastname" name="lastname">
-          
-        </div >
-        
-        <div class="form-group mb-2">
-          <label  class="form-label">Email Id</label>
-          <input type="text" class="form-control" id="emailid"
-          [(ngModel)] = "trainer.emailid" name="emailid">
-          
-        </div >
-        
-        
-        <div class="row pt-2 pb-4">
-          <div class="col-md-12">
-            <button class="btn btn-success form-control" type="submit">Submit</button>
+    <div class="row">
+      <h2 class="mb-5">{{ !isEditMode ? "Create new" : "Edit" }} Trainer</h2>
+      <form (ngSubmit)="onSubmit()">
+          <div class="col-md-6 offset-md-3">
+          <div class="form-group mb-2">
+            <label class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              [(ngModel)]="trainer.firstname"
+              name="firstname"
+            />
+          </div>
+
+          <div class="form-group mb-2">
+            <label class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              [(ngModel)]="trainer.lastname"
+              name="lastname"
+            />
+          </div>
+
+          <div class="form-group mb-2">
+            <label class="form-label">Email Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="emailid"
+              [(ngModel)]="trainer.emailid"
+              name="emailid"
+            />
+          </div>
+
+          <div class="row pt-2 pb-4">
+            <div class="col-md-12">
+              <button class="btn btn-success form-control" type="submit">
+                Submit
+              </button>
+            </div>
           </div>
         </div>
-        
-        
-        
-    </form>
+        <div class="col-md-6">
+          <div>hello</div>
+        </div>
+        </form>
+    </div>
   </div>
-</div>
+</div> -->
+
+<div class="row">
+  <div class="col-sm-8 mx-auto">
+    <form (ngSubmit)="onSubmit()">
+    <div class="row offset-md-0" >
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group mb-2">
+              <label class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                [(ngModel)]="trainer.firstname"
+                name="firstname"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group mb-2">
+              <label class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                [(ngModel)]="trainer.lastname"
+                name="lastname"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row offset-md-0" >
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group mb-2">
+              <label class="form-label">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                [(ngModel)]="trainer.emailid"
+                name="firstname"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group mb-2">
+              <label class="form-label">Designation</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                [(ngModel)]="trainer.designation"
+                name="lastname"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row offset-md-0" >
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group mb-2">
+              <label class="form-label">Qualification</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                [(ngModel)]="trainer.qualification"
+                name="firstname"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <div class="row offset-md-0" >
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group mb-2">
+              <label class="form-label">Image</label>
+              <input
+                type="file"
+                class="form-control"
+                id="img"
+                name="img"
+                (change)="images($event)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group mb-2">
+              <img *ngIf="isEditMode" [src]="getImage(trainer.id) |async" >
+              <img *ngIf="!isEditMode" [src]="selectedImage" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-2 pb-4">
+      <div class="col-md-12">
+        <button class="btn btn-success form-control" type="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+  </div>
 </div>

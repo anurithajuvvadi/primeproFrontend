@@ -18,15 +18,17 @@
     <thead class="table">
       <tr>
         <th>Sr.No</th>
+        <th>Person</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email Id</th>
         <th>Update/Delete</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       <tr *ngFor="let trainer of trainers; let i = index">
         <td>{{ i + 1 }}</td>
+        <td><img [src]="getImage(trainer.id) | async" alt="item"></td>
         <td>{{ trainer.firstname }}</td>
         <td>{{ trainer.lastname }}</td>
         <td>{{ trainer.emailid }}</td>

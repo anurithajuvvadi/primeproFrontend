@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Trainer } from './trainer';
 
 @Injectable({
@@ -13,11 +13,9 @@ export class TrainerService {
   getTrainersList(): Observable<Trainer[]> {
     return this.httpClient.get<Trainer[]>(`${this.baseURL}`);
   }
-  addTrainer(trainer: Trainer): Observable<any> {
-    return this.httpClient.post(`${this.baseURL}`, trainer, {
-      headers: { 'Content-Type': 'application/json' },
-      responseType:"text"
-    });
+
+  addTrainer(formData:FormData): Observable<any> {
+    return this.httpClient.post(`${this.baseURL}`, formData,{responseType:"text"});
   }
 
   getTrainerById(id: number): Observable<Trainer> {
@@ -30,5 +28,20 @@ export class TrainerService {
 
   deleteTrainer(id:number):Observable<any>{
     return this.httpClient.delete(`${this.baseURL}/delete/${id}`,{responseType:"text"});
+  }
+
+  imageBlobUrls: { [key: number]: Observable<string> } = {};
+
+  getImage(id: number): Observable<string> {
+    if (!this.imageBlobUrls[id]) {
+      const apiUrl = `http://localhost:8088/trainers/img/${id}`;
+      this.imageBlobUrls[id] = this.httpClient.get(apiUrl, { responseType: 'arraybuffer' }).pipe(
+        map(response => URL.createObjectURL(new Blob([response], { type: 'image/jpg' })))
+      );
+    }
+    return this.imageBlobUrls[id];
+  }
+  updateTrainer(formData:FormData):Observable<any>{
+    return this.httpClient.put(`${this.baseURL}/`,formData);
   }
 }
