@@ -1,0 +1,39 @@
+<!-- <div class="containerm m-3">
+  <div class="card mb-3" style="max-width: 700px; min-height: 300px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="image" class="img-fluid rounded-start" width="400px" height="300px">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="card bg-dark text-white">
+  <img [src]="image" class="card-img image" alt="..." >
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div>
+</div> -->
+
+
+<div class="card mx-auto">
+  <div class="content ">
+      <p class="closebtn" (click)="close()">Close</p>
+      <img [src]="image" class="card-img-top image " alt="..." >
+      <div class="card-body">
+        <h2 class="card-title">{{trainer.firstname}} {{trainer.lastname}}</h2>
+        <p class="card-text">
+          "<i>{{trainer.firstname}}</i> is an accomplished trainer with a distinguished designation of<i> {{trainer.designation}}</i>. Her extensive qualification in <i>{{trainer.qualification}}</i> further solidifies her expertise. With a dynamic teaching style and an unwavering commitment to learning, she imparts knowledge effectively. Anuritha's approachable nature and clear communication make her a valuable mentor. Her students benefit greatly from her wealth of experience and dedication to their growth."</p>
+        <!-- <p class="card-text"><small class="text-muted"></small></p> -->
+      </div>
+    </div>
+</div>

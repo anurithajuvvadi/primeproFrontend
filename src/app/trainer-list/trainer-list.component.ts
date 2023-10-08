@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Trainer } from '../trainer';
 import { TrainerService } from '../trainer.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, map } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { InfoComponent } from '../info/info.component';
 
 @Component({
   selector: 'app-trainer-list',
@@ -19,16 +21,17 @@ export class TrainerListComponent implements OnInit {
     private trainerService: TrainerService,
     private router: Router,
     private toastr: ToastrService,
-    private http : HttpClient
+    private http: HttpClient,
+    private dialog: MatDialog,private renderer: Renderer2, private el: ElementRef
   ) {}
 
   ngOnInit(): void {
     this.getTrainers();
   }
   getTrainers() {
-    this.trainerService.getTrainersList().subscribe((data:any) => {
+    this.trainerService.getTrainersList().subscribe((data: any) => {
       this.trainers = data;
-      console.log(typeof(data[0].img));
+      console.log(typeof data[0].img);
       if (this.trainers.length > 0) this.isTrainers = true;
       if (this.trainers.length <= 0) this.isTrainers = false;
     });
@@ -78,7 +81,23 @@ export class TrainerListComponent implements OnInit {
   }
 
   getImage(id: number): Observable<string> {
-   return this.trainerService.getImage(id);  
+    return this.trainerService.getImage(id);
   }
 
+  openDialog(
+    data:any,
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+
+    this.dialog.open(InfoComponent, {
+      data: data,
+      // width: '700px',
+      // height:'500px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
+
+  }
 }

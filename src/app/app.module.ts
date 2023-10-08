@@ -15,7 +15,12 @@ import { CreateTrainerComponent } from './create-trainer/create-trainer.componen
 import { FormsModule } from '@angular/forms';
 import { UpdateTrainerComponent } from './update-trainer/update-trainer.component';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule} from "@angular/platform-browser/animations"
+import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { InfoComponent } from './info/info.component'
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import { BrowserAnimationsModule} from "@angular/platform-browser/animations"
     HeaderComponent,
     FooterComponent,
     CreateTrainerComponent,
-    UpdateTrainerComponent
+    UpdateTrainerComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,14 @@ import { BrowserAnimationsModule} from "@angular/platform-browser/animations"
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-left',
+      preventDuplicates: true,
+    }),
+    MatDialogModule,
+    MatSlideToggleModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

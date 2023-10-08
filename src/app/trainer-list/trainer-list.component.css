@@ -65,12 +65,13 @@ td img{
     width: 100px;
     height: 100px;
     border-radius: 15px;
-    object-fit: cover;
+    object-fit: contain;
     text-align: center;
-    /* padding: -50px; */
+    cursor: pointer;
 }
 td{
-    text-align: center;
     padding-top: 15px;
-    /* text-anchor: middle; */
+    text-align: center;
 }
+
+

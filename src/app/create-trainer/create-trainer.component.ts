@@ -4,6 +4,7 @@ import { TrainerService } from '../trainer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-trainer',
@@ -11,67 +12,78 @@ import { Observable } from 'rxjs';
   styleUrls: ['./create-trainer.component.css'],
 })
 export class CreateTrainerComponent implements OnInit {
-  trainer: Trainer = new Trainer();
-  isEditMode:boolean;
-  selectedImage:any;
+  trainer: any;
+  isEditMode!:boolean;
+   selectedImage:any;
   file : File;
+  requestedId:number;
   constructor(
     private trainerService: TrainerService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
-  ngOnInit(): void {
+    private route: ActivatedRoute,
+    private toastr : ToastrService
+  ) {
     this.route.queryParams.subscribe((param) => {
-      if(param['id']){
+      this.requestedId = param['id'];
+      if(this.requestedId){
+        console.log(true)
         this.trainerService.getTrainerById(param['id']).subscribe({
           next:(data)=>{
             this.isEditMode=true;
             this.trainer = data;
+             this.getImage(this.requestedId).subscribe((data)=>{
+              this.selectedImage = data;
+            });
           },
           error:(error:HttpErrorResponse)=>{
             console.log(error);
           }
         })
-      }
-      if(!param['id']){
+      }else{
+        console.log(false)
         this.isEditMode=false
         this.trainer=new Trainer();
       }
     });
   }
+  ngOnInit(): void {
+    
+  }
 
   saveTrainer(formData) {
-    this.trainerService.addTrainer(formData).subscribe({
-      next: (data) => {
-        this.goToTrainerList();
-        console.log(data);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    console.log(this.isEditMode)
+    if(!this.isEditMode){
+      this.trainerService.addTrainer(formData).subscribe({
+        next: (data) => {
+          this.toastr.success("Data Created")
+          this.goToTrainerList();
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
+    if(this.isEditMode){
+      this.trainerService.updateTrainer(this.requestedId,formData).subscribe({
+        next:(data)=>{
+          this.toastr.success("Data updated")
+          this.goToTrainerList();
+          console.log(data)
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      })
+    }
   }
 
-  updateTrainer(formData){
-    this.trainerService.updateTrainer(formData).subscribe({
-      next: (data) => {
-        this.goToTrainerList();
-        console.log(data);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
   goToTrainerList() {
     this.router.navigate(['/trainers/trainerlist']);
   }
 
   images(event:any){
-    this.isEditMode = false
     this.file = (event.target as HTMLInputElement).files[0];
-    // const file = (event.target as HTMLInputElement).files[0];
-    // this.selectedImage = this.file;
     const reader = new FileReader();
     reader.onload = () => {
       this.selectedImage = reader.result as string;
@@ -80,11 +92,20 @@ export class CreateTrainerComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.trainer);
+    const trainer:Trainer = {
+      firstname: this.trainer.firstname,
+      lastname: this.trainer.lastname,
+      emailid: this.trainer.emailid,
+      designation: this.trainer.designation,
+      qualification: this.trainer.qualification,
+      id: this.trainer.id
+    };
+    console.log(this.isEditMode)
+    console.log(trainer);
     console.log(this.file)
     const formData = new FormData();
     formData.append('file', this.file, this.file.name);
-    formData.append('trainer', JSON.stringify(this.trainer));
+    formData.append('trainer', JSON.stringify(trainer));
     this.saveTrainer(formData);
   }
 

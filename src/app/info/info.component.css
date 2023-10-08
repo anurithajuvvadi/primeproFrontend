@@ -1,0 +1,52 @@
+button {
+    margin-right: 8px;
+  }
+  
+.card{
+  padding: 50px;
+  box-shadow: 0 0 400px 0 whitesmoke;
+}
+.content{
+  padding: 30px;
+  border-radius: 30px;
+  background-color: #004246;
+  color: #fff;
+  box-shadow: 0 15px 300px 5px #deff58;
+}
+
+.image{
+  object-fit: cover;
+  object-position: 0 10%;
+  height: 300px;
+  padding: 10px;
+}
+
+.closebtn{
+  border-radius: 15px;
+  position: absolute;
+  top: 55px;
+  right: 70px;
+  color: #fff;
+  background-color: #004246;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.card-title{
+  text-transform: uppercase;
+  font-size: 35px;
+  text-decoration: underline;
+  color: #55d125;
+}
+.card-text{
+  word-spacing: 3px;
+  text-indent: 40px;
+  text-transform: capitalize;
+}
+.card-text > i{
+  color: #f0ea28;
+  font-size: 15px;
+  letter-spacing: 2px;
+}

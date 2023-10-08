@@ -10,3 +10,27 @@ td, img{
     text-align: center;
     /* padding: -50px; */
 }
+
+.content{
+    padding: 50px;
+    /* background-color: rgb(218, 233, 197); */
+}
+
+input{
+    background-color:#cfdcdd;
+    padding: 10px;
+    /* width: 200px; */
+}
+input::placeholder{
+    color: #004246;
+    font-size: 1px;
+    font-weight: 600;
+}
+label{
+    font-size: 18px;
+    color: #004246;
+    font-weight: 400;
+}
+.preview{
+    object-fit: contain;
+}

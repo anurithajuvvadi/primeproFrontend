@@ -18,6 +18,12 @@ export class TrainerService {
     return this.httpClient.post(`${this.baseURL}`, formData,{responseType:"text"});
   }
 
+  updateTrainer(id:number,formData:FormData):Observable<any>{
+    const headers = new HttpHeaders();
+    headers.set('Content-Type','multipart/from-data')
+    return this.httpClient.put(`${this.baseURL}/update/${id}`,formData,{ 
+      headers,responseType:'text'});
+  }
   getTrainerById(id: number): Observable<Trainer> {
     return this.httpClient.get<Trainer>(`${this.baseURL}/${id}`);
   }
@@ -41,7 +47,5 @@ export class TrainerService {
     }
     return this.imageBlobUrls[id];
   }
-  updateTrainer(formData:FormData):Observable<any>{
-    return this.httpClient.put(`${this.baseURL}/`,formData);
-  }
+  
 }

@@ -1,21 +1,4 @@
-/* .navbar{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 1111;
-    padding: 4vh;
-
-}
-.container-fluid{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
-header{
+header {
     margin: 0;
     padding: 0;
     display: flex;
@@ -25,45 +8,59 @@ header{
     color: whitesmoke;
     position: relative;
     width: 100%;
-    
 }
-.logo{
+
+.logo {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.logo .icon{
+
+.logo .icon {
     font-size: 40px;
     font-weight: 900;
     letter-spacing: 4px;
 }
-.links{
+
+.links {
     width: 40%;
     display: flex;
     justify-content: space-around;
     padding: 50px;
 }
-.links a{
+
+.links a {
     font-size: 18px;
     padding: 8px 15px;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: 450;
 }
-.links a:hover{
+
+.links a:hover {
     background-color: whitesmoke;
     color: #004246;
 }
-.links a.active{
+
+.links a.active {
     background-color: #deff58;
     color: #004246;
-    /* color: #004246; */
 }
 
-.bgcolor{
+.bgcolor {
     background-color: #004246;
 }
 
-.container{
+.container {
     flex: 1;
+}
+
+@media screen and (max-width: 700px) {
+    .links {
+        width: 100%; /* Adjust width for mobile view */
+        padding: 20px; /* Adjust padding for mobile view */
+        justify-content: center; /* Center the links */
+        flex-direction: column; /* Stack links on top of each other */
+        align-items: center; /* Center the links horizontally */
+    }
 }

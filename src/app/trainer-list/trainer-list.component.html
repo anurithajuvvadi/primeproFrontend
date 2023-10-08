@@ -22,25 +22,22 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email Id</th>
+        <th>Designation</th>
+        <th>Qualification</th>
         <th>Update/Delete</th>
       </tr>
     </thead>
     <tbody >
       <tr *ngFor="let trainer of trainers; let i = index">
         <td>{{ i + 1 }}</td>
-        <td><img [src]="getImage(trainer.id) | async" alt="item"></td>
+        <td><img [src]="getImage(trainer.id)  | async" class="tdimg" alt="item" (click)="openDialog(trainer.id,'500ms', '500ms')"></td>
         <td>{{ trainer.firstname }}</td>
         <td>{{ trainer.lastname }}</td>
         <td>{{ trainer.emailid }}</td>
+        <td>{{ trainer.designation }}</td>
+        <td>{{ trainer.qualification }}</td>
         <td>
-          <!-- <button (click)="updateTrainer(trainer.id)" class="btn btn-info">
-            Update
-          </button> -->
-          <!-- <button (click)="delete(trainer.id)" class="btn btn-danger">
-            Delete
-          </button> -->
-
-          <button routerLink="/trainers/create-trainer" [queryParams]="{id:trainer.id}" class="btn btn-info" >Update</button>
+             <button routerLink="/trainers/create-trainer" [queryParams]="{id:trainer.id}" class="btn btn-info" >Update</button>
           <button (click)="delete(trainer.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
