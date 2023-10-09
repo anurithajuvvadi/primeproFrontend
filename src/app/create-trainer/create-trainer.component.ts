@@ -100,9 +100,7 @@ export class CreateTrainerComponent implements OnInit {
       qualification: this.trainer.qualification,
       id: this.trainer.id
     };
-    console.log(this.isEditMode)
-    console.log(trainer);
-    console.log(this.file)
+  
     const formData = new FormData();
     formData.append('file', this.file, this.file.name);
     formData.append('trainer', JSON.stringify(trainer));
