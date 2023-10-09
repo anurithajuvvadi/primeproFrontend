@@ -12,7 +12,7 @@ import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateTrainerComponent } from './create-trainer/create-trainer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateTrainerComponent } from './update-trainer/update-trainer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -21,6 +21,12 @@ import { InfoComponent } from './info/info.component'
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
+import { ViewcoursesComponent } from './courses/viewcourses/viewcourses.component';
+import { AddcourseComponent } from './courses/addcourse/addcourse.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,9 @@ import {MatButtonModule} from '@angular/material/button';
     FooterComponent,
     CreateTrainerComponent,
     UpdateTrainerComponent,
-    InfoComponent
+    InfoComponent,
+    ViewcoursesComponent,
+    AddcourseComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +58,12 @@ import {MatButtonModule} from '@angular/material/button';
     }),
     MatDialogModule,
     MatSlideToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

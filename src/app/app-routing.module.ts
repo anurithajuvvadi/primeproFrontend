@@ -8,6 +8,8 @@ import { ContactComponent } from './contact/contact.component';
 import { TrainerListComponent } from './trainer-list/trainer-list.component';
 import { CreateTrainerComponent } from './create-trainer/create-trainer.component';
 import { UpdateTrainerComponent } from './update-trainer/update-trainer.component';
+import { AddcourseComponent } from './courses/addcourse/addcourse.component';
+import { ViewcoursesComponent } from './courses/viewcourses/viewcourses.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,17 @@ const routes: Routes = [
   },
   {
     path:'courses',
-    component:CoursesComponent
+    component:CoursesComponent,
+    children:[
+      {
+        path:'add',
+        component:AddcourseComponent
+      },
+      {
+        path:'view',
+        component:ViewcoursesComponent
+      }
+    ]
   },
   {
     path:'trainers',

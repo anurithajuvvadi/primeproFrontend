@@ -55,7 +55,7 @@ header {
     flex: 1;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
     .links {
         width: 100%; /* Adjust width for mobile view */
         padding: 20px; /* Adjust padding for mobile view */
@@ -63,4 +63,18 @@ header {
         flex-direction: column; /* Stack links on top of each other */
         align-items: center; /* Center the links horizontally */
     }
+    .icon{
+       font-size: smaller;
+    }
+    header {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #004246;
+        color: whitesmoke;
+        position: relative;
+        width: 100%;
+    }    
 }
