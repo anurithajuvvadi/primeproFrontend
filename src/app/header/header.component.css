@@ -11,23 +11,23 @@ header {
 }
 
 .logo {
-    width: 50%;
+    /* width: 10%; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
 }
 
 .logo .icon {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 900;
     letter-spacing: 4px;
 }
 
 .links {
-    width: 40%;
+    /* width: 30%; */
     display: flex;
-    justify-content: space-around;
-    padding: 50px;
+    justify-content: center;
+    padding: 20px;
 }
 
 .links a {

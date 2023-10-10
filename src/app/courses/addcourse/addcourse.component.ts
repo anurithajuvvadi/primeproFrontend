@@ -54,5 +54,6 @@ export class AddcourseComponent {
 
   addCourse(){
     console.log(this.courses.value);
+    this._cs.addCourse(this.courses.value)
   }
 }
