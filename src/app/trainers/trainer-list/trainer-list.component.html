@@ -1,0 +1,53 @@
+<div class="p-1">
+  <div class="heading">
+    Trainer list
+  </div>
+  <div class="row search">
+    <div class="col-md-4">
+      <input
+        type="text"
+        name="text"
+        (keyup)="findByKey($event)"
+        placeholder="Search Trainer"
+      />
+    </div>
+  </div>
+</div>
+<div *ngIf="isTrainers; else message" class="data text-center">
+  <table class="table text-center">
+    <thead class="table">
+      <tr>
+        <th>Sr.No</th>
+        <th>Person</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Id</th>
+        <th>Designation</th>
+        <th>Qualification</th>
+        <th *ngIf="isAdmin">Update/Delete</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let trainer of trainers; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td><img [src]="getImage(trainer.id)  | async" class="tdimg" alt="item" (click)="openDialog(trainer.id,'500ms', '500ms')"></td>
+        <td>{{ trainer.firstname }}</td>
+        <td>{{ trainer.lastname }}</td>
+        <td>{{ trainer.emailid }}</td>
+        <td>{{ trainer.designation }}</td>
+        <td>{{ trainer.qualification }}</td>
+        <td *ngIf="isAdmin">
+             <button routerLink="/trainers/create-trainer" [queryParams]="{id:trainer.id}" class="btn btn-info" >Update</button>
+          <button (click)="delete(trainer.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #message>
+  <div class="template mx-auto">
+    <!-- <h1>{{msg}}</h1> -->
+    <img src="../../assets/empty-cart.jpg" alt="empty-cart" />
+  </div>
+</ng-template>

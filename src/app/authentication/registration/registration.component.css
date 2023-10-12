@@ -1,0 +1,43 @@
+mat-form-field{
+    width: 100%;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /* border: 2px solid black; */
+    position: relative;
+    /* overflow: hidden; */
+}
+.bg{
+    background-image: url("../../../assets/bg4.jpg");
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 800px;
+    background-color: gray;
+    overflow: hidden;
+    filter: blur(4px);
+    border-radius: 15px;
+
+}
+
+.container{
+    width: 70%;
+    background-color: #fff;
+    padding: 30px;
+    z-index: 2;
+    border-radius: 15px;
+}
+
+.head1{
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: bolder;
+    border-bottom: 4px solid blueviolet;
+    padding: 10px;
+  }

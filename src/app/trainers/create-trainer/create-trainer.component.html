@@ -1,0 +1,284 @@
+<div class="row content">
+  <h1 class="text-center head1">Add Trainer</h1>
+  <div class="col-sm-8 mx-auto">
+    <form #trainerForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row offset-md-0">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group mb-2">
+                <label class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  name="firstname"
+                  [(ngModel)]="trainer.firstname"
+                  required
+                  minlength="3"
+                  maxlength="30"
+                  #firstname="ngModel"
+                />
+                <div
+                  *ngIf="firstname.touched && firstname.invalid"
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="
+                      trainerForm.controls['firstname'].hasError('required')
+                    "
+                  >
+                    First Name is required
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['firstname'].hasError('minlength')
+                    "
+                  >
+                    Minimum length is 3 characters
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['firstname'].hasError('maxlength')
+                    "
+                  >
+                    Maximum length is 30 characters
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group mb-2">
+                <label class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  [(ngModel)]="trainer.lastname"
+                  name="lastname"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  #lastname="ngModel"
+                />
+                <div
+                  *ngIf="lastname.touched && lastname.invalid"
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="
+                      trainerForm.controls['lastname'].hasError('required')
+                    "
+                  >
+                    Last Name is required
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['lastname'].hasError('minlength')
+                    "
+                  >
+                    Minimum length is 3 characters
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['lastname'].hasError('maxlength')
+                    "
+                  >
+                    Maximum length is 30 characters
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row offset-md-0">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group mb-2">
+                <label class="form-label">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="emailid"
+                  [(ngModel)]="trainer.emailid"
+                  name="emailid"
+                  required
+                  minlength="10"
+                  maxlength="30"
+                  #emailid="ngModel"
+                />
+                <div
+                  *ngIf="emailid.touched && emailid.invalid"
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="trainerForm.controls['emailid'].hasError('required')"
+                  >
+                    Email is required
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['emailid'].hasError('minlength')
+                    "
+                  >
+                    Minimum length is 10 characters
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['emailid'].hasError('maxlength')
+                    "
+                  >
+                    Maximum length is 30 characters
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group mb-2">
+                <label class="form-label">Designation</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="designation"
+                  [(ngModel)]="trainer.designation"
+                  name="designation"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  #designation="ngModel"
+                />
+                <div
+                  *ngIf="designation.touched && designation.invalid"
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="
+                      trainerForm.controls['designation'].hasError('required')
+                    "
+                  >
+                    designation is required
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['designation'].hasError('minlength')
+                    "
+                  >
+                    Minimum length is 2 characters
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['designation'].hasError('maxlength')
+                    "
+                  >
+                    Maximum length is 30 characters
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row offset-md-0">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group mb-2">
+                <label class="form-label">Qualification</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="qualification"
+                  [(ngModel)]="trainer.qualification"
+                  name="qualification"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  #qualification="ngModel"
+                />
+                <div
+                  *ngIf="qualification.touched && qualification.invalid"
+                  class="text-danger"
+                >
+                  <div
+                    *ngIf="
+                      trainerForm.controls['qualification'].hasError('required')
+                    "
+                  >
+                    qualification is required
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['qualification'].hasError(
+                        'minlength'
+                      )
+                    "
+                  >
+                    Minimum length is 2 characters
+                  </div>
+                  <div
+                    *ngIf="
+                      trainerForm.controls['qualification'].hasError(
+                        'maxlength'
+                      )
+                    "
+                  >
+                    Maximum length is 30 characters
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row offset-md-0">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group mb-2">
+                <label class="form-label">Image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="img"
+                  name="img"
+                  (change)="images($event)"
+                  required
+                />
+                <div *ngIf="trainerForm.controls['img'] && trainerForm.controls['img'].hasError('required')" class="text-danger">
+                  Image is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group mb-2">
+                <!-- <img  src="../../assets/emptyprofile.jpg" > -->
+                <img [src]="selectedImage" class="preview"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2 pb-4">
+        <div class="col-md-12">
+          <button class="btn btn-success form-control" type="submit" [disabled]="trainerForm.invalid">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

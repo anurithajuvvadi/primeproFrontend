@@ -1,57 +1,10 @@
-/* *{
-    margin:0px;
-    padding:0px;
-    box-sizing: border-box;
-}
-nav{
+/* .carousel{
+    display: flex;
     width: 100%;
-    height:75px;
-    line-height: 75px;
-    padding:0px 100px;
-    position: fixed;
-    background-image:linear-gradient(#033747,#012733);
-}
-nav .logo p{
-    font-size: 30px;
-    font-weight:bold;
-    float:left;
-    color:white;
-    letter-spacing: 1.5px;
-    cursor:pointer;
-    
-}
-nav ul{
-    float:right;
-}
-nav li{
-    display:inline-block;
-    list-style: none;
-}
-
-nav li a{
-    font-size:18px;
-    text-transform: uppercase;
-    padding:0px 30px;
-    color:white;
-    text-decoration: none;
-
-}
-nav li a:hover{
-    color:brown;
-    transition: all 0.4s ease 0s;
-}
-footer{
-    padding:10px;
-    font-size:17px;
-    font-weight:bold;
-    text-align:center;
-    background:#594848;
-    color:white;
-    font-family:Arial;
-    letter-spacing:1px;
-
+    height: 50px;
+    justify-content: center;
+    align-items: center;
 } */
-
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -66,3 +19,59 @@ footer{
       font-size: 3.5rem;
     }
   }
+
+  .course{
+    display: flex;
+    border-radius: 10px;
+    margin: 50px 0;
+    width: 100%;
+    min-height: 400px;
+    background-color: #f8f8fe;
+}
+
+.course-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: #004246; */
+    border-radius: 10px;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.course-body .content1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.course-body .content2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-spacing: 4px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-align: justify;
+    padding: 50px;
+}
+.col{
+  cursor: pointer;
+}
+.img{
+  overflow: hidden;
+}
+.card-img-top{
+  transition: all 0.5s;
+}
+
+.col:hover  .card-img-top{
+  /* color: white; */
+  transform: scale(1.3);
+}

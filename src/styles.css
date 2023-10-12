@@ -1,9 +1,19 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo&display=swap");
 
-body{
-    font-family: 'Archivo', sans-serif;
+
+:root{
+    --header-bg1:#3e2093;
+    --header-bg2:#004246;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: url("./assets/bg6.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  /* filter: blur(2px); */
+}

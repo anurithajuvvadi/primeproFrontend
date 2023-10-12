@@ -1,6 +1,74 @@
+
 <div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
-    <div class="col">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5" *ngIf="course">
+    <div class="col" *ngFor="let item of course">
+      <div class="card shadow-sm">
+
+        <!-- Carousel Start -->
+          <div class="carousel-inner">
+            <div *ngIf="item.imagesSet !== null && item.imagesSet.length === 0">
+                <img src="\assets\emptyprofile.jpg" class="d-block w-100" alt="Please Upload Image">
+              </div>
+            <div class="carousel-item active" *ngFor="let img of item.imagesSet">
+              <div>
+                <img [src]="(getImage(img.id) | async)" class="d-block w-100" alt="Please Upload Image">
+              </div>
+              </div>
+          </div>
+
+        <!-- Carousel End -->
+
+        <div class="card-body">
+          <div class="card-text"><span class="cH">Course Name : </span><span class="text">{{item.name}}</span></div>
+          <div class="card-text"><span class="cH">Price :</span><span class="text">&#8377; {{item.price - (item.price*0.15)}} <del> &#8377; {{item.price}}</del></span></div>
+          <div class="card-text"><span class="cH">Duration :</span><span class="text">{{item.duration}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2" *ngIf="course">
+    <div class="col" *ngFor="let item of course; let i = index;">
+      <div class="card shadow-sm">
+
+
+       <div id="carouselExampleIndicators{{i}}" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+
+          <div class="carousel-item" *ngFor="let img of item.imagesSet">
+            <img  [src]="getImage(img.id) |async" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+  
+
+        <div class="card-body">
+          <div class="card-text"> <span> Course Name :</span> <span class="text"> {{item.name}}</span></div>
+          <div class="card-text"> <span>Price :</span> <span class="text">&#8377; {{item.price - (item.price*0.15)}} <del> &#8377; {{item.price}}</del></span></div>
+          <div class="card-text"> <span>Duration :</span><span class="text">  {{item.duration}}</span></div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2" *ngIf="course">
+    <div class="col" *ngFor="let item of course">
       <div class="card shadow-sm">
         <img
           src="\assets\servicenow.jpg"
@@ -9,12 +77,13 @@
           preserveAspectRatio="xMidYMid slice"
         />
         <div class="card-body">
-          <p class="card-text text-center">longer.</p>
-        </div>
+          <div class="card-text"> <span> Course Name :</span> <span class="text"> {{item.name}}</span></div>
+          <div class="card-text"> <span>Price :</span> <span class="text">&#8377; {{item.price - (item.price*0.15)}} <del> &#8377; {{item.price}}</del></span></div>
+          <div class="card-text"> <span>Duration :</span><span class="text">  {{item.duration}}</span></div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- <div class="container">

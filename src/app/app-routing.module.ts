@@ -5,11 +5,13 @@ import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { ContactComponent } from './contact/contact.component';
-import { TrainerListComponent } from './trainer-list/trainer-list.component';
-import { CreateTrainerComponent } from './create-trainer/create-trainer.component';
-import { UpdateTrainerComponent } from './update-trainer/update-trainer.component';
+import { TrainerListComponent } from './trainers/trainer-list/trainer-list.component';
+import { CreateTrainerComponent } from './trainers/create-trainer/create-trainer.component';
 import { AddcourseComponent } from './courses/addcourse/addcourse.component';
 import { ViewcoursesComponent } from './courses/viewcourses/viewcourses.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { RegistrationComponent } from './authentication/registration/registration.component';
+import { LoginComponent } from './authentication/login/login.component';
 
 const routes: Routes = [
   {
@@ -50,12 +52,21 @@ const routes: Routes = [
       {
         path:'create-trainer',
         component:CreateTrainerComponent
+      }
+    ]
+  },
+  {
+    path:"auth",
+    component:AuthenticationComponent,
+    children:[
+      {
+        path:"register",
+        component:RegistrationComponent
       },
       {
-        path:'update-trainer',
-        component:UpdateTrainerComponent
+        path:"login",
+        component:LoginComponent
       }
-
     ]
   }
 

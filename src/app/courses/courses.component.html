@@ -1,30 +1,17 @@
 <div class="container course-container">
   <ul class="nav nav-tabs">
-    <li class="nav-item" >
+    <li class="nav-item" *ngIf="isAdmin" >
       <a class="nav-link " routerLink="add"  (click)="onClick($event)">Add Course</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link " routerLink="view" (click)="onClick($event)" >View Course</a>
+      <a class="nav-link active" routerLink="view" (click)="onClick($event)" >View Course</a>
     </li>
   </ul>
 
-  <div *ngIf="$linkActive" class="m-5">
+  <div class="m-5">
     <router-outlet></router-outlet>
   </div>
-  <div *ngIf="!$linkActive">
-      <div class="course">
-        <div class="course-body">
-          <div class="row row-cols-sm-2">
-            <div class="col-sm-6 content1 row-cols-1">
-                <div class="row row-cols-1">
-                  <img src="\assets\logo1.png" alt="">
-                </div>
-            </div>
-            <div class="col-sm-6 content2">
-              At PrimePro, we leverage our extensive experience in global staffing , building corporate learning centres, academic collaborations, and skilling industry to provide you with the most comprehensive and effective training solutions. We understand the specific needs and challenges of both individuals and businesses, and we use this knowledge to create customized training solutions that deliver measurable results.
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
+  <!-- <div *ngIf="!$linkActive">
+     
+  </div> -->
 </div>

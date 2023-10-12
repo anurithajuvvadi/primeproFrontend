@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SharedService } from '../services/shared.service';
+import { Users } from '../interface/users';
 
 @Component({
   selector: 'app-courses',
@@ -8,15 +9,18 @@ import { SharedService } from '../services/shared.service';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent {
-  
+  user:Users;
+  isAdmin:boolean;
    public $linkActive : boolean; 
   constructor(private el : ElementRef, private sharedService:SharedService){
     this.$linkActive = this.sharedService.getLinkActive();
+    this.isAdmin = this.sharedService.getIsAdmin();
   }
   ngOnInit(){
     this.$linkActive = this.sharedService.getLinkActive();
   console.log(this.$linkActive)
 
+  this.user = this.sharedService.getUser();
 }
 
   onClick(event:any){

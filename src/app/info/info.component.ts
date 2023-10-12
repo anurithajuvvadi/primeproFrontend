@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Trainer } from '../trainer';
-import { TrainerService } from '../trainer.service';
+import { TrainerService } from '../services/trainer.service';
 
 @Component({
   selector: 'app-info',

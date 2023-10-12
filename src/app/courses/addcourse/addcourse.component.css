@@ -48,3 +48,18 @@ img {
         padding-top: 50px;
       }
 }
+
+.content{
+  padding: 50px;
+  /* background-color: rgb(218, 233, 197); */
+  background-color: whitesmoke;
+  border-radius: 15px;
+}
+
+.head1{
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: bolder;
+  border-bottom: 4px solid blueviolet;
+  padding: 10px;
+}

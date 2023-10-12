@@ -1,20 +1,21 @@
+
+
 header {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
-    background-color: #004246;
+    background-color: transparent;
     color: whitesmoke;
     position: relative;
     width: 100%;
 }
 
 .logo {
-    /* width: 10%; */
+    width: 60%;
     display: flex;
-    justify-content: start;
-    align-items: start;
+
 }
 
 .logo .icon {
@@ -24,7 +25,7 @@ header {
 }
 
 .links {
-    /* width: 30%; */
+    width: 30%;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -55,6 +56,14 @@ header {
     flex: 1;
 }
 
+.close{
+    display: none;
+    cursor: pointer;
+}
+.hidden{
+    display: none;
+}
+
 @media screen and (max-width: 900px) {
     .links {
         width: 100%; /* Adjust width for mobile view */
@@ -65,16 +74,29 @@ header {
     }
     .icon{
        font-size: smaller;
+       margin-left: 40px;
     }
     header {
         margin: 0;
-        padding: 0;
+        padding: 10px;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
-        background-color: #004246;
+        background-color: transparent;
         color: whitesmoke;
         position: relative;
         width: 100%;
     }    
+    .close{
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 50px;
+        font-weight: 500;
+        font-size: large;
+        transition: all 0.5s;
+    }
+    .close.active > .links{
+            display: none;
+    }
+
 }

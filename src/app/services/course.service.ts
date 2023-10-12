@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../interface/course';
@@ -12,12 +12,15 @@ export class CourseService {
 
   constructor(private http: HttpClient) { }
 
-  home():Observable<any>{
-    return this.http.get(`${ROOT_URL}/`,{responseType:'text'})
+  getCourses():Observable<any>{
+    return this.http.get(`${ROOT_URL}/`)
   }
 
   addCourse(course:Course):Observable<any>{
-    const headers = new Headers();
-    return this.http.post(`${ROOT_URL}/addCourse`,course,{})
+    const headers = new HttpHeaders();
+    headers.set('Content-Type','Application/json')
+    return this.http.post(`${ROOT_URL}/addCourse`,course,{
+      headers,responseType:"text"
+    })
   }
 }

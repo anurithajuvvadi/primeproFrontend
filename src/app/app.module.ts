@@ -8,12 +8,11 @@ import { CoursesComponent } from './courses/courses.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
-import { TrainerListComponent } from './trainer-list/trainer-list.component';
+import { TrainerListComponent } from './trainers/trainer-list/trainer-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { CreateTrainerComponent } from './create-trainer/create-trainer.component';
+import { CreateTrainerComponent } from './trainers/create-trainer/create-trainer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UpdateTrainerComponent } from './update-trainer/update-trainer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { InfoComponent } from './info/info.component'
@@ -27,6 +26,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegistrationComponent } from './authentication/registration/registration.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -40,10 +42,12 @@ import {MatSelectModule} from '@angular/material/select';
     HeaderComponent,
     FooterComponent,
     CreateTrainerComponent,
-    UpdateTrainerComponent,
     InfoComponent,
     ViewcoursesComponent,
-    AddcourseComponent
+    AddcourseComponent,
+    LoginComponent,
+    RegistrationComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,

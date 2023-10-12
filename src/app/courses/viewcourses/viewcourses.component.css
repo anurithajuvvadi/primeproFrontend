@@ -1,0 +1,26 @@
+.card-body span{
+    /* display: flex; */
+    /* flex-direction: co; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    font-size: 14px;
+    /* font-weight: 500; */
+}
+.card-body .text{
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+.card-text{
+    margin: 10px;
+}
+
+img{
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.cH{
+    font-weight: 700;
+}
