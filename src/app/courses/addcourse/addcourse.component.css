@@ -35,7 +35,7 @@ img {
     padding-left: 50px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 992px) {
     img {
         width: 150px;
         height: 150px;

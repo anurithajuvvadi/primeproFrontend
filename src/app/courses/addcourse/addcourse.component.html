@@ -1,8 +1,10 @@
 <div class="container p-5 content">
+
+  
   <h1 class="text-center head1">Add Course</h1>
+  <form [formGroup]="courses" (ngSubmit)="addCourse()">
   <div class="row addCourse">
-    <div class="col-sm-6">
-      <form [formGroup]="courses" (ngSubmit)="addCourse()">
+      <div class="col-sm-6">
         <div class="row">
           <p>
             <mat-form-field appearance="outline">
@@ -14,14 +16,23 @@
               />
               <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
-            <span *ngIf="courses.controls['name'].invalid && courses.controls['name'].dirty" class="text-danger">
-              <p *ngIf="courses.controls['name'].hasError('required')">name is required.</p>
-              <p *ngIf="courses.controls['name'].hasError('minlength')">name must be at least 2 characters long.</p>
+            <span
+              *ngIf="
+                courses.controls['name'].invalid &&
+                courses.controls['name'].dirty
+              "
+              class="text-danger"
+            >
+              <p *ngIf="courses.controls['name'].hasError('required')">
+                name is required.
+              </p>
+              <p *ngIf="courses.controls['name'].hasError('minlength')">
+                name must be at least 2 characters long.
+              </p>
             </span>
           </p>
-
         </div>
-        <div class="row ">
+        <div class="row">
           <p>
             <mat-form-field appearance="outline">
               <mat-label>Duration</mat-label>
@@ -32,9 +43,19 @@
               />
               <mat-icon matSuffix>watch</mat-icon>
             </mat-form-field>
-            <span *ngIf="courses.controls['duration'].invalid && courses.controls['duration'].dirty" class="text-danger">
-              <p *ngIf="courses.controls['duration'].hasError('required')">duration is required.</p>
-              <p *ngIf="courses.controls['duration'].hasError('minlength')">duration must be at least 2 characters long.</p>
+            <span
+              *ngIf="
+                courses.controls['duration'].invalid &&
+                courses.controls['duration'].dirty
+              "
+              class="text-danger"
+            >
+              <p *ngIf="courses.controls['duration'].hasError('required')">
+                duration is required.
+              </p>
+              <p *ngIf="courses.controls['duration'].hasError('minlength')">
+                duration must be at least 2 characters long.
+              </p>
             </span>
           </p>
         </div>
@@ -50,27 +71,36 @@
               <!-- Dollar icon -->
               <mat-icon matSuffix>attach_money</mat-icon>
             </mat-form-field>
-            <span *ngIf="courses.controls['price'].invalid && courses.controls['price'].dirty" class="text-danger">
-              <p *ngIf="courses.controls['price'].hasError('required')">price is required.</p>
-              <p *ngIf="courses.controls['price'].hasError('minlength')">price must be at least 2 characters long.</p>
+            <span
+              *ngIf="
+                courses.controls['price'].invalid &&
+                courses.controls['price'].dirty
+              "
+              class="text-danger"
+            >
+              <p *ngIf="courses.controls['price'].hasError('required')">
+                price is required.
+              </p>
+              <p *ngIf="courses.controls['price'].hasError('minlength')">
+                price must be at least 2 characters long.
+              </p>
             </span>
           </p>
         </div>
-        <div class="row mt-3">
+        <!-- <div class="row mt-3">
           <button class="btn btn-success" type="submit">Add Course</button>
-        </div>
-      </form>
-    </div>
-    <div class="col-sm-6 line1 text-center">
-      <form [formGroup]="imageForm" (ngSubmit)="addImage()">
-        <mat-form-field appearance="outline">
-          <mat-label>Favorite food</mat-label>
-          <mat-select formControlName="id">
-            <mat-option *ngFor="let item of course" [value]="item.id">
-              {{ item.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        </div> -->
+      </div>
+      <div class="col-sm-6 line1 text-center">
+        <!-- <form [formGroup]="imageForm" (ngSubmit)="addImage()">
+          <mat-form-field appearance="outline">
+            <mat-label>Favorite food</mat-label>
+            <mat-select formControlName="id">
+              <mat-option *ngFor="let item of course" [value]="item.id">
+                {{ item.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
         <img [src]="image || 'https://picsum.photos/500/225?=avtar'" alt="" />
 
         <div class="mt-3"></div>
@@ -78,13 +108,13 @@
           type="file"
           (change)="onSelectImage($event)"
           placeholder="Placeholder"
-          formControlName="img"
         />
 
         <div class="row mt-3">
           <button class="btn btn-success" type="submit">Add Image</button>
         </div>
-      </form>
+        <!-- </form> -->
+      </div>
     </div>
-  </div>
+  </form>
 </div>

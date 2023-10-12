@@ -1,11 +1,12 @@
 <div class="container course-container">
   <ul class="nav nav-tabs">
-    <li class="nav-item" *ngIf="isAdmin" >
-      <a class="nav-link " routerLink="add"  (click)="onClick($event)">Add Course</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" routerLink="view" (click)="onClick($event)" >View Course</a>
-    </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="view" (click)="onClick($event)" >View Course</a>
+      </li>
+      <li class="nav-item" *ngIf="isAdmin" >
+        <a class="nav-link " routerLink="add"  (click)="onClick($event)">Add Course</a>
+      </li>
   </ul>
 
   <div class="m-5">

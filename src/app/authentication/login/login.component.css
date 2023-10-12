@@ -1,7 +1,15 @@
+.container{
+    padding: 100px;
+}
+
 mat-form-field{
     width: 100%;
 }
 
 *{
     color: #fff;
+}
+
+.text-danger{
+    color: red ;
 }

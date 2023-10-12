@@ -24,3 +24,9 @@ img{
 .cH{
     font-weight: 700;
 }
+.btns{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

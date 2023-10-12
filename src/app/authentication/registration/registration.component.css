@@ -11,7 +11,7 @@ mat-form-field{
     position: relative;
     /* overflow: hidden; */
 }
-.bg{
+/* .bg{
     background-image: url("../../../assets/bg4.jpg");
     position: absolute;
     display: flex;
@@ -24,11 +24,12 @@ mat-form-field{
     filter: blur(4px);
     border-radius: 15px;
 
-}
+} */
 
 .container{
     width: 70%;
-    background-color: #fff;
+    /* background-color: #fff; */
+    color: #fff;
     padding: 30px;
     z-index: 2;
     border-radius: 15px;

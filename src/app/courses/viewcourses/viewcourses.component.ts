@@ -1,4 +1,5 @@
 import { Component , Input} from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/interface/course';
 import { CourseService } from 'src/app/services/course.service';
@@ -14,21 +15,40 @@ export class ViewcoursesComponent {
   emptyprofile:string = "\assets\emptyprofile.jpg"
   course:any;
 
-  constructor(private _cs : CourseService, private _ts:TrainerService){
-    this._cs.getCourses().subscribe((res)=>{
-      console.log(res)
-      this.course = res;
-    });
+  constructor(private _cs : CourseService, private _ts:TrainerService, private _toastr: ToastrService){
+    
+    this.getAllCourses();
   }
 
   @Input()  isAdmin:boolean=true;
 
   getImage(id: number): Observable<string> {
-    return this._ts.getImageFromImages(id);
+    return this._cs.getImageFromImages(id);
   }
 
 
+  delete(id:number){
+    this._cs.deleteCourse(id).subscribe({
+      next:(data)=>{
+        this.getAllCourses();
+        this._toastr.success("Course Deleted")
+      },
+      error:(error)=>{
+        console.log(error)
+      }
+    })
+  }
 
+    getAllCourses(){
+      this._cs.getCourses().subscribe({
+        next:(data)=>{
+          this.course = data;
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      })
+    }
 
 
 
