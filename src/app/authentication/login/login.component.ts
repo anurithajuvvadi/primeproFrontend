@@ -35,6 +35,7 @@ export class LoginComponent {
     this._auth.login(this.loginForm.value).subscribe({
       next:(data)=>{
         this._ss.setUser(data);
+        console.log(data.role)
         if(data){
           this.checkRole(data);
         }

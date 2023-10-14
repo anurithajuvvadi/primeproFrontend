@@ -24,7 +24,7 @@ export class AuthService {
     headers.set('Content-Type', 'Application/json');
     return this.http.post(`${this.ROOT_URL}/login`, users, {
       headers,
-      responseType: 'text',
+      responseType: 'json',
     });
   }
 }
