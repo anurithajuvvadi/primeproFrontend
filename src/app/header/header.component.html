@@ -28,7 +28,9 @@
   
   <header>
     <div class="logo">
-      <div class="icon">PrimePro</div>
+      <div class="icon">
+        <img src="\assets\logop.png" alt="">
+      </div>
     </div>
     <div class="close" (click)="toggleClose($event)">X</div>
     <div class="links">
@@ -36,7 +38,7 @@
       <a class="nav-link " aria-current="page" routerLink="/courses/view"(click)="setActiveLink($event)">Courses</a>
       <a class="nav-link " aria-current="page" routerLink="trainers/trainerlist" (click)="setActiveLink($event)">Trainers</a>
       <a class="nav-link " aria-current="page" routerLink="aboutus" (click)="setActiveLink($event)">Aboutus</a>
-      <a class="nav-link " aria-current="page" routerLink="contact" (click)="setActiveLink($event)">Contacts</a>
+      <a class="nav-link " aria-current="page" routerLink="contact" (click)="setActiveLink($event)">Contact</a>
       <a class="nav-link " aria-current="page" routerLink="/auth/login" (click)="setActiveLink($event)" *ngIf="!isLogin">Login</a>
       <a class="nav-link " aria-current="page" routerLink="/auth/login" (click)="setActiveLink($event)" (click)="logout()" *ngIf="isLogin">Logout</a>
       

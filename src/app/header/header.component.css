@@ -8,20 +8,31 @@ header {
     align-items: center;
     background-color: transparent;
     color: whitesmoke;
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
+    background-color: #000;
+    z-index: 2;
+    background-image: url('../../assets/bg11.jpg');
+    background-position: 50% 50%;
 }
 
 .logo {
     width: 60%;
     display: flex;
-
+    
 }
 
 .logo .icon {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 900;
     letter-spacing: 4px;
+    /* padding: 10px; */
+}
+
+.logo .icon img{
+    width: 70px;
+    height: 70px;
 }
 
 .links {
@@ -32,10 +43,11 @@ header {
 }
 
 .links a {
-    font-size: 18px;
+    font-size: 20px;
     padding: 8px 15px;
     border-radius: 5px;
     font-weight: 450;
+
 }
 
 .links a:hover {
