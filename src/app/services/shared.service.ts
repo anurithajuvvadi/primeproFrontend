@@ -27,7 +27,7 @@ export class SharedService {
     this.user = new BehaviorSubject<any>(this.user1);
     this.$user = this.user.asObservable();
 
-    this.isAdmin = new BehaviorSubject<boolean>(true);
+    this.isAdmin = new BehaviorSubject<boolean>(false);
     this.$isAdmin = this.isAdmin.asObservable();
 
     this.isLogin = new BehaviorSubject<boolean>(false);
