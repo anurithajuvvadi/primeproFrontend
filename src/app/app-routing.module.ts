@@ -38,7 +38,8 @@ const routes: Routes = [
       {
         path:'view',
         component:ViewcoursesComponent
-      }
+      },
+      
     ]
   },
   {
