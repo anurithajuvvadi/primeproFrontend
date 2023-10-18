@@ -21,10 +21,13 @@ export class AuthService {
 
   login(users: Users): Observable<any> {
     const headers = new HttpHeaders();
-    headers.set('Content-Type', 'Application/json');
+    //headers.set('Content-Type', 'Application/json');
+    headers.set('Content-Type', 'application/json'); // Corrected 'Content-Type'
+
     return this.http.post(`${this.ROOT_URL}/login`, users, {
       headers,
       responseType: 'json',
     });
+    //return this.http.get("http://localhost:8088/auth/login/")
   }
 }
