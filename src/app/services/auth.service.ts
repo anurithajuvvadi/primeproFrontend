@@ -62,5 +62,6 @@ export class AuthService {
         console.log("loggedout")
       }
     });
+    //return this.http.get("http://localhost:8088/auth/login/")
   }
 }

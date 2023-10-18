@@ -1,6 +1,8 @@
 footer{
     /* position: sticky; */
     /* top:100%; */
+    /* margin-top: 10vh; */
+
 
     width: 100%;
     padding:30px 0;
@@ -13,5 +15,5 @@ footer{
     letter-spacing:1px;
 
     /* margin-top: 50vh; */
-    background-image: url('../../assets/bg11.jpg');
+    background-image: url('../../assets/bg2.jpg');
 }

@@ -1,166 +1,336 @@
-
-<div class="container">
+<!-- <div class="container">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5" *ngIf="course">
     <div class="col" *ngFor="let item of course">
       <div class="card shadow-sm">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div>
+              <img
+                [src]="getImage(item.id) | async"
+                class="d-block w-100"
+                alt="Please Upload Image"
+              />
+            </div>
+          </div>
+        </div>
 
-        <!-- Carousel Start -->
+
+        <div class="card-body">
+          <div class="card-text">
+            <span class="cH">Course Name : </span
+            ><span class="text">{{ item.name }}</span>
+          </div>
+          <div class="card-text">
+            <span class="cH">Price :</span
+            ><span class="text"
+              >&#8377; {{ item.price - item.price * 0.15 }}
+              <del> &#8377; {{ item.price }}</del></span
+            >
+          </div>
+          <div class="card-text">
+            <span class="cH">Duration :</span
+            ><span class="text">{{ item.duration }}</span>
+          </div>
+          <div *ngIf="isAdmin" class="btns">
+            <button
+              routerLink="/courses/add"
+              [queryParams]="{ id: item.id }"
+              class="btn btn-info"
+            >
+              Update
+            </button>
+            <button (click)="delete(item.id)" class="btn btn-danger">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="album py-5">
+  <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let item of course">
+        <div class="card shadow-sm">
+          <!-- Carousel Start -->
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div>
-                <img [src]="(getImage(item.id) | async)" class="d-block w-100" alt="Please Upload Image">
+                <img
+                  [src]="getImage(item.id) | async"
+                  class="d-block w-100"
+                  alt="Please Upload Image"
+                />
               </div>
-              </div>
+            </div>
           </div>
 
-        <!-- Carousel End -->
+          <!-- Carousel End -->
 
-        <div class="card-body">
-          <div class="card-text"><span class="cH">Course Name : </span><span class="text">{{item.name}}</span></div>
-          <div class="card-text"><span class="cH">Price :</span><span class="text">&#8377; {{item.price - (item.price*0.15)}} <del> &#8377; {{item.price}}</del></span></div>
-          <div class="card-text"><span class="cH">Duration :</span><span class="text">{{item.duration}}</span></div>
-          <div *ngIf="isAdmin" class="btns">
-            <button routerLink="/courses/add" [queryParams]="{id:item.id}" class="btn btn-info " >Update</button>
-         <button (click)="delete(item.id)" class="btn btn-danger">Delete</button>
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">{{ item.name }}</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text"
+                >&#8377; {{ item.price - item.price * 0.15 }}
+                <del> &#8377; {{ item.price }}</del></span
+              >
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">{{ item.duration }}</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button
+                routerLink="/courses/add"
+                [queryParams]="{ id: item.id }"
+                class="btn btn-info"
+              >
+                Update
+              </button>
+              <button (click)="delete(item.id)" class="btn btn-danger">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                src="https://picsum.photos/500/225?=1"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">Java</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text">&#8377; 12500 <del> &#8377; 15400</del></span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">6 Month</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button class="btn btn-info">Update</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                src="https://picsum.photos/500/225?=2"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">Python</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text">&#8377; 12500 <del> &#8377; 15400</del></span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">6 Month</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button class="btn btn-info">Update</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                src="https://picsum.photos/500/225?=3"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">.Net</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text">&#8377; 12500 <del> &#8377; 15400</del></span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">6 Month</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button class="btn btn-info">Update</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                src="https://picsum.photos/500/225?=4"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">Html</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text">&#8377; 12500 <del> &#8377; 15400</del></span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">6 Month</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button class="btn btn-info">Update</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                src="https://picsum.photos/500/225?=5"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">CSS</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text">&#8377; 9500 <del> &#8377; 11400</del></span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">6 Month</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button class="btn btn-info">Update</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                src="https://picsum.photos/500/225?=6"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">mySql</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text">&#8377; 9500 <del> &#8377; 13400</del></span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">6 Month</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button class="btn btn-info">Update</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                src="https://picsum.photos/500/225?=7"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <span class="cH">Course Name : </span
+              ><span class="text">Java</span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Price :</span
+              ><span class="text">&#8377; 12500 <del> &#8377; 15400</del></span>
+            </div>
+            <div class="card-text">
+              <span class="cH">Duration :</span
+              ><span class="text">6 Month</span>
+            </div>
+            <div *ngIf="isAdmin" class="btns">
+              <button class="btn btn-info">Update</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-<!-- <div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2" *ngIf="course">
-    <div class="col" *ngFor="let item of course; let i = index;">
-      <div class="card shadow-sm">
-
-
-       <div id="carouselExampleIndicators{{i}}" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-
-          <div class="carousel-item" *ngFor="let img of item.imagesSet">
-            <img  [src]="getImage(img.id) |async" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-  
-
-        <div class="card-body">
-          <div class="card-text"> <span> Course Name :</span> <span class="text"> {{item.name}}</span></div>
-          <div class="card-text"> <span>Price :</span> <span class="text">&#8377; {{item.price - (item.price*0.15)}} <del> &#8377; {{item.price}}</del></span></div>
-          <div class="card-text"> <span>Duration :</span><span class="text">  {{item.duration}}</span></div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2" *ngIf="course">
-    <div class="col" *ngFor="let item of course">
-      <div class="card shadow-sm">
-        <img
-          src="\assets\servicenow.jpg"
-          class="bd-placeholder-img card-img-top"
-          width="100%"
-          preserveAspectRatio="xMidYMid slice"
-        />
-        <div class="card-body">
-          <div class="card-text"> <span> Course Name :</span> <span class="text"> {{item.name}}</span></div>
-          <div class="card-text"> <span>Price :</span> <span class="text">&#8377; {{item.price - (item.price*0.15)}} <del> &#8377; {{item.price}}</del></span></div>
-          <div class="card-text"> <span>Duration :</span><span class="text">  {{item.duration}}</span></div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- <div class="container">
-  <div class="row m-3">
-    <div class="col-sm-12 text-center m-3 card mx-auto courses">
-      <img src="\assets\jfsimage.jpg" />
-      <div class="description">Java-Full-stack-devlopment</div>
-    </div>
-    <div class="col-sm-12 text-center m-3 card mx-auto courses">
-      <img src="\assets\python.jpg" />
-      <div class="description">Python-Full-stack-devlopment</div>
-    </div>
-    <div class="col-sm-12 text-center m-3 card mx-auto courses">
-      <img src="\assets\powerbi2.jpg" />
-      <div class="description">Power bi</div>
-    </div>
-  </div>
-  <div class="row m-3">
-    <div class="col-sm-3 text-center m-3 card mx-auto courses">
-      <img src="\assets\azure.jpg" />
-      <div class="description">Microsoft Azure</div>
-    </div>
-    <div class="col-sm-12 text-center m-3 card mx-auto courses">
-      <img src="\assets\servicenow.jpg" />
-      <div class="description">service now</div>
-    </div>
-    <div class="col-sm-12 text-center m-3 card mx-auto courses">
-      <img src="\assets\web design1.jpg" />
-      <div class="card-body">
-        <div class="card-title">
-          <div class="description">Web Design</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
-    <div class="col">
-      <div class="card shadow-sm">
-        <img
-          src="\assets\servicenow.jpg"
-          class="bd-placeholder-img card-img-top"
-          width="100%"
-          preserveAspectRatio="xMidYMid slice"
-        />
-        <div class="card-body">
-          <p class="card-text text-center">longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card shadow-sm">
-        <img
-          src="\assets\servicenow.jpg"
-          class="bd-placeholder-img card-img-top"
-          width="100%"
-          preserveAspectRatio="xMidYMid slice"
-        />
-        <div class="card-body">
-          <p class="card-text text-center">longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card shadow-sm">
-        <img
-          src="\assets\servicenow.jpg"
-          class="bd-placeholder-img card-img-top"
-          width="100%"
-          preserveAspectRatio="xMidYMid slice"
-        />
-        <div class="card-body">
-          <p class="card-text text-center">longer.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
