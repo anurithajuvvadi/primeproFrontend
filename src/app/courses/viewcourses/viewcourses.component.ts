@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/interface/course';
 import { CourseService } from 'src/app/services/course.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
@@ -12,15 +13,16 @@ import { TrainerService } from 'src/app/services/trainer.service';
 })
 export class ViewcoursesComponent {
 
+  isAdmin:boolean;
   emptyprofile:string = "\assets\emptyprofile.jpg"
   course:any;
 
-  constructor(private _cs : CourseService, private _ts:TrainerService, private _toastr: ToastrService){
-    
+  constructor(private _cs : CourseService, private _ts:TrainerService,
+     private _toastr: ToastrService,private _ss:SharedService){
+    this.isAdmin= this._ss.getIsAdmin();
     this.getAllCourses();
   }
 
-  @Input()  isAdmin:boolean=true;
 
   getImage(id: number): Observable<string> {
     return this._cs.getImageFromImages(id);

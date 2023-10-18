@@ -15,12 +15,9 @@ export class CoursesComponent {
   constructor(private el : ElementRef, private sharedService:SharedService){
     this.$linkActive = this.sharedService.getLinkActive();
     this.isAdmin = this.sharedService.getIsAdmin();
-    console.log(this.sharedService.getIsAdmin())
   }
   ngOnInit(){
     this.$linkActive = this.sharedService.getLinkActive();
-  console.log(this.$linkActive)
-
   this.user = this.sharedService.getUser();
 }
 

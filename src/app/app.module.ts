@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -29,6 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { CustomInterceptor } from './custom.interceptor';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,13 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     MatSelectModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+
+    provide: HTTP_INTERCEPTORS,
+    useClass: CustomInterceptor,
+    multi: true,
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

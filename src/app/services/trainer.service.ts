@@ -11,7 +11,7 @@ export class TrainerService {
 
   constructor(private httpClient: HttpClient) {}
   getTrainersList(): Observable<Trainer[]> {
-    return this.httpClient.get<Trainer[]>(`${this.baseURL}`);
+    return this.httpClient.get<Trainer[]>(`${this.baseURL}/`);
   }
 
   addTrainer(formData:FormData): Observable<any> {

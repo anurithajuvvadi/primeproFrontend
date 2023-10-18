@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ export class HeaderComponent {
 
   constructor(
     private _ss: SharedService,
+    private _authS:AuthService,
     private el: ElementRef,
     private router: Router
   ) {
@@ -54,6 +56,11 @@ export class HeaderComponent {
     this._ss.setIsLogin(false);
     this._ss.setIsAdmin(false);
     this._ss.setUser(null);
-
+    this._ss.setToken(null);
+    this._authS.deleteToken().subscribe({
+      next:(data)=>{
+        console.log("loggedout")
+      }
+    });
   }
 }

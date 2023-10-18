@@ -24,7 +24,7 @@ li a:active{
     top: 0px;
     background-color: transparent;
     width: 100%;
-    z-index: -2;
+    z-index: 2;
 }
 
 

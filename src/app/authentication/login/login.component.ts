@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent {
   user: Users;
+  token:string;
 
   loginForm: FormGroup;
   constructor(
@@ -35,59 +36,49 @@ export class LoginComponent {
     });
 
     this.user = this._ss.getUser();
+    this._ss.$token.subscribe({
+      next:(data)=>{
+        this.token = data;
+
+      }
+    })
   }
 
   onLogin() {
-    // const formData = new FormData();
-    // formData.append('email', this.loginForm.value.email);
-    // formData.append('password', this.loginForm.value.password);
     this._auth.login(this.loginForm.value).subscribe({
       next: (data) => {
-        this._ss.setUser(data);
-        console.log(data.role);
-        if (data) {
-          this.checkRole(data);
-        }
-        this._ss.setIsLogin(true);
-        this.router.navigate(['/']);
+        this._ss.setToken(data.token);
+          this._us.getUserByToken(this.token).subscribe({
+            next:(data)=>{
+              if (data) {
+                this._ss.setUser(data);
+                this._ss.checkRole(data);
+              }
+              this._ss.setIsLogin(true);
+              this.router.navigate(['/']);
+            }
+          })
       },
       error: (err: HttpErrorResponse) => {
         if (err.status == 302) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
+        }else{
+          this.router.navigate(['/login']);
         }
 
         console.log(err);
       },
     });
-
-    // this._auth.login(this.loginForm.value).subscribe({
-    //   next:(data)=>{
-    //     this._ss.setUser(data);
-    //     console.log(data.role)
-    //     if(data){
-    //       this.checkRole(data);
-    //     }
-    //     this._ss.setIsLogin(true);
-    //     this.router.navigate(['/'])
-    //   },
-    //   error:(err:HttpErrorResponse)=>{
-    //     if(err.status==302){
-    //         this.router.navigate(['/'])
-
-    //       }
-
-    //     console.log(err);
-    //   }
-    // })
   }
 
-  checkRole(data) {
-    const user = data;
-    if (user.role == 'ROLE_ADMIN') {
-      this._ss.setIsAdmin(true);
-    }
-    if (user.role == 'ROLE_USER') {
-      this._ss.setIsAdmin(false);
-    }
-  }
+
+  // checkRole(data) {
+  //   const user = data;
+  //   if (user.roles == 'ROLE_ADMIN') {
+  //     this._ss.setIsAdmin(true);
+  //   }
+  //   if (user.roles == 'ROLE_USER') {
+  //     this._ss.setIsAdmin(false);
+  //   }
+  // }
 }

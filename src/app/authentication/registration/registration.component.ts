@@ -23,12 +23,11 @@ export class RegistrationComponent {
       email:['',[Validators.required,Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )]],
       password:['',[Validators.required,Validators.minLength(4)]],
-      role:['',Validators.required]
+      roles:['',Validators.required]
     })
   }
 
   register(){
-    console.log(this.userForm.value)
     this._auth.register(this.userForm.value).subscribe({
       next:(data)=>{
         this._toastr.success("Registerd Successfully")

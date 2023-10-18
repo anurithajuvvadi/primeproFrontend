@@ -20,6 +20,9 @@ export class SharedService {
   private isLogin : BehaviorSubject<boolean>;
   public $isLogin : Observable<boolean>;
 
+  private token : BehaviorSubject<string>;
+  public $token : Observable<string>;
+
   constructor() {
     this.linkActive = new BehaviorSubject<boolean>(false);
     this.$linkActive = this.linkActive.asObservable();
@@ -32,6 +35,11 @@ export class SharedService {
 
     this.isLogin = new BehaviorSubject<boolean>(false);
     this.$isLogin = this.isLogin.asObservable();
+
+    this.token = new BehaviorSubject<string>(null);
+    this.$token = this.token.asObservable();
+
+
    }
 
    getLinkActive(){
@@ -66,4 +74,20 @@ export class SharedService {
     return this.isLogin.value;
    }
 
+   setToken(value:string){
+    this.token.next(value)
+   }
+   getToken(){
+    return this.token.value;
+   }
+
+   checkRole(data) {
+    const user = data;
+    if (user.roles == 'ROLE_ADMIN') {
+      this.setIsAdmin(true);
+    }
+    if (user.roles == 'ROLE_USER') {
+      this.setIsAdmin(false);
+    }
+  }
 }
