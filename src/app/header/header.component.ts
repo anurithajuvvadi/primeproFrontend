@@ -37,17 +37,17 @@ export class HeaderComponent {
 
   toggleClose(event: any) {
     const element = document.querySelectorAll('.close');
-    if (this.isToggle) event.target.classList.add('active');
-    if (!this.isToggle) event.target.classList.remove('active');
-    this.isToggle = !this.isToggle;
+    if (this.isToggle) event.target.classList.add('active');//button is not visible here 
+    if (!this.isToggle) event.target.classList.remove('active');//button is seen here 
+    this.isToggle = !this.isToggle;//button is seen now 
 
     const linksElement = document.querySelectorAll('.links')[0];
-    console.log(linksElement);
+    console.log(linksElement);//printing links by default on button visible 
     if (linksElement) {
-      if (this.isToggle) {
-        linksElement.classList.add('hidden');
+      if (this.isToggle) {//button clicked after displaying links initially 
+        linksElement.classList.add('hidden');//lnks are hidden now 
       } else {
-        linksElement.classList.remove('hidden');
+        linksElement.classList.remove('hidden');//links are visible now 
       }
     }
   }

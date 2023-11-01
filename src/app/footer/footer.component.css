@@ -9,11 +9,12 @@ footer{
     font-size:27px;
     font-weight:bold;
     text-align:center;
-    background:#004246;
+    background: #222629;    
     color:white;
     font-family:Arial;
     letter-spacing:1px;
 
     /* margin-top: 50vh; */
-    background-image: url('../../assets/bg2.jpg');
+   /* background-image: url('../../assets/bg2.jpg');*/
+
 }

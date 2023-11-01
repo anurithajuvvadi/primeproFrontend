@@ -12,13 +12,11 @@ body{
     display:flex;
     align-items: center;
     justify-content: center;
-    background-color: #f1f1f1;
 }
 
 .about-section{
     background: url('/assets/aboutusbkg.jpg') no-repeat left;
     background-size: 55%;
-    background-color: #fdfdfd;
     overflow:hidden;
     padding:50px 50px;
     /* height: 80; */
@@ -27,7 +25,6 @@ body{
 .inner-container{
     width:55%;
     float:right;
-    background-color: #fdfdfd;
     padding:0 150px;
 }
 .inner-container h1{
@@ -47,7 +44,7 @@ body{
     display:flex;
     justify-content: space-between;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 17px;
 }
 @media screen and (max-width:1200px){
     .inner-container{

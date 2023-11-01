@@ -6,7 +6,7 @@
         <div class="mb-3">
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Enter your password" formControlName="email"  class="input"/>
+            <input matInput placeholder="Enter your email" formControlName="email"  class="input"/>
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
           <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].dirty" class="text-danger">

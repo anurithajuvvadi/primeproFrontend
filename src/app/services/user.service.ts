@@ -15,6 +15,6 @@ ROOT_URL:string = "http://localhost:8088/user"
   }
 
   getUserByToken(token:string):Observable<any>{
-    return this.http.get(`${this.ROOT_URL}/userFromToken/${token}`)
+    return this.http.get(`${this.ROOT_URL}/userFromToken/${token}`)//will go to usercontroller.java
   }
 }

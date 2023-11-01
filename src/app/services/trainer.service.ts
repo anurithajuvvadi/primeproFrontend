@@ -15,12 +15,12 @@ export class TrainerService {
   }
 
   addTrainer(formData:FormData): Observable<any> {
-    return this.httpClient.post(`${this.baseURL}`, formData,{responseType:"text"});
+    return this.httpClient.post(`${this.baseURL}/`, formData,{responseType:"text"});
   }
 
   updateTrainer(id:number,formData:FormData):Observable<any>{
     const headers = new HttpHeaders();
-    headers.set('Content-Type','multipart/from-data')
+    headers.set('Content-Type','multipart/form-data')
     return this.httpClient.put(`${this.baseURL}/update/${id}`,formData,{ 
       headers,responseType:'text'});
   }
@@ -29,7 +29,7 @@ export class TrainerService {
   }
 
   getTrainerByKey(key:string): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/findbykey/${key}`)
+    return this.httpClient.get(`${this.baseURL}/findbykey/${key}`)//tjis isin trainerrepo.java
   }
 
   deleteTrainer(id:number):Observable<any>{

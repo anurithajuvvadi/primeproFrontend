@@ -51,7 +51,7 @@ export class AddcourseComponent {
 
     this.route.queryParams.subscribe({
       next: (data) => {
-        this.id = data['id'];
+        this.id = data['id']; 
         if (this.id != null) {
           this.isEditMode = true;
           this._cs.getCourseById(this.id).subscribe({
@@ -118,7 +118,7 @@ export class AddcourseComponent {
       this._cs.addCourse(formData).subscribe({
         next: (data) => {
           this.router.navigate(['courses/view'])
-          this._toastr.success('Course Add Successfully');
+          this._toastr.success('Course Added Successfully');
         },
         error: (err) => {
           console.log(err);

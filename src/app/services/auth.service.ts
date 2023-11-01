@@ -8,13 +8,13 @@ import { SharedService } from './shared.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class  AuthService {
   ROOT_URL: string = 'http://localhost:8088/auth';
   constructor(private http: HttpClient, private router : Router,private _ss:SharedService) {}
 
   register(users: Users): Observable<any> {
     const headers = new HttpHeaders();
-    headers.set('Content-Type', 'Application/json');
+    headers.set('Content-Type', 'application/json');
     return this.http.post(`${this.ROOT_URL}/register`, users, {
       headers,
       responseType: 'text',
@@ -25,7 +25,7 @@ export class AuthService {
     const body = { email: users.email, password: users.password };
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
   
-    return this.http.post(`${this.ROOT_URL}/login`, body, {headers,withCredentials:true
+    return this.http.post(`${this.ROOT_URL}/login`, body, {headers,withCredentials:true//this line will go to authcontroller.java
     }).pipe(
       catchError(error => {
         console.error('Error during login:', error);

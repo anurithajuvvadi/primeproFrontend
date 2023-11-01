@@ -48,11 +48,11 @@ export class LoginComponent {
     this._auth.login(this.loginForm.value).subscribe({
       next: (data) => {
         this._ss.setToken(data.token);
-          this._us.getUserByToken(this.token).subscribe({
+          this._us.getUserByToken(this.token).subscribe({//this is returning user
             next:(data)=>{
               if (data) {
                 this._ss.setUser(data);
-                this._ss.checkRole(data);
+                this._ss.checkRole(data); 
               }
               this._ss.setIsLogin(true);
               this.router.navigate(['/']);

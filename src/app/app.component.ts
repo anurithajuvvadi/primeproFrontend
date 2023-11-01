@@ -21,22 +21,22 @@ export class AppComponent {
 
 
 
-  checkIsToken() {
-    this._authS.isToken().subscribe({
-      next: (data) => {
-        this.token = data;
-        console.log(data);
-        // this._ss.setToken(data);
-        // if(data!="null" && this._ss.getToken()!=null){
-        //   this._us.getUserByToken(data).subscribe({
-        //     next:(data)=>{
-        //       console.log(data)
-        //       this._ss.checkRole(data);
-        //       this._ss.setIsLogin(true)
-        //     }
-        //   })
-        // }
-      },
-    });
-  }
+  // checkIsToken() {
+  //   this._authS.isToken().subscribe({
+  //     next: (data) => {
+  //       this.token = data;
+  //       console.log(data);
+  //       // this._ss.setToken(data);
+  //       // if(data!="null" && this._ss.getToken()!=null){
+  //       //   this._us.getUserByToken(data).subscribe({
+  //       //     next:(data)=>{
+  //       //       console.log(data)
+  //       //       this._ss.checkRole(data);
+  //       //       this._ss.setIsLogin(true)
+  //       //     }
+  //       //   })
+  //       // }
+  //     },
+  //   });
+  // }
 }

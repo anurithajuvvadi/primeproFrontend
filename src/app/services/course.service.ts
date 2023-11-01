@@ -49,7 +49,7 @@ export class CourseService {
     }
 
     getCourseById(id : number):Observable<any>{
-      return this.http.get(`${ROOT_URL}/getCourseById/${id}`);
+      return this.http.get(`${ROOT_URL}/getCourseById/${id}`);//goes to coursecontroller.java
     }
 
   // addCourse(course:Course):Observable<any>{

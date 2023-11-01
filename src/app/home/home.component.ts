@@ -8,15 +8,6 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomeComponent {
 
-  constructor(private _authS:AuthService){
-    this._authS.isToken().subscribe({
-      next:(data)=>{
-        console.log(data)
-      },
-      error:(err)=>{
-        console.log(err.error)
-      }
-    })
-  }
+  
 
 }

@@ -36,6 +36,7 @@ private tokenChecked:boolean;
     //     }
     //   });
     // }
+    const token = this._ss.getToken();
           if(this._ss.getToken()!=null){
             request = request.clone({
               setHeaders:{
